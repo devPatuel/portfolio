@@ -1,0 +1,101 @@
+/* Trial: devPatuel «cristal» look layered over style.css (only overrides; remove this file to go back). */
+:root {
+  --bg: #e9eef4;
+  --bg-2: rgba(255, 255, 255, 0.55);
+  --text: #0b1220;
+  --text-dim: rgba(11, 18, 32, 0.64);
+  --accent: #0a9e63;
+  --accent-deep: #0a9e63;
+  --on-accent-deep: #ffffff;
+  --warm: #b86e00;
+  --border: rgba(11, 18, 32, 0.12);
+  --box-fill: rgba(255, 255, 255, 0.6);
+  --selected-fill: rgba(10, 158, 99, 0.14);
+  --tarjeta-grad: transparent;
+  --cristal: linear-gradient(145deg, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.45));
+  --cristal-borde: rgba(255, 255, 255, 0.9);
+  --cristal-brillo: inset 0 1px 0 #ffffff;
+  --sombra: 0 20px 50px rgba(20, 40, 70, 0.14);
+  --puntos: rgba(11, 18, 32, 0.12);
+  --halo-verde: #19d38a;
+  --halo-azul: #1b5fd6;
+  --fondo-centro: #f8fbff;
+}
+:root[data-tema="oscuro"] {
+  --bg: #05070b;
+  --bg-2: rgba(255, 255, 255, 0.07);
+  --text: #f2f6fb;
+  --text-dim: rgba(242, 246, 251, 0.62);
+  --accent: #3dffa8;
+  --accent-deep: #3dffa8;
+  --on-accent-deep: #04110b;
+  --warm: #ffb020;
+  --border: rgba(255, 255, 255, 0.14);
+  --box-fill: rgba(255, 255, 255, 0.06);
+  --selected-fill: rgba(61, 255, 168, 0.14);
+  --cristal: linear-gradient(145deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.03));
+  --cristal-borde: rgba(255, 255, 255, 0.18);
+  --cristal-brillo: inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  --sombra: 0 20px 50px rgba(0, 0, 0, 0.45);
+  --puntos: rgba(255, 255, 255, 0.11);
+  --fondo-centro: #0f1a24;
+}
+
+/* Backdrop: gradient on <html>, dot grid and halos as fixed pseudo-elements (no extra markup, CSP-safe). */
+html { background: radial-gradient(ellipse at 50% 0%, var(--fondo-centro), var(--bg) 70%) fixed var(--bg); }
+body { background: transparent; }
+body::before, body::after { content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; }
+body::before { inset: -48px; background-image: radial-gradient(var(--puntos) 1.5px, transparent 2px); background-size: 32px 32px;
+  animation: cristal-deriva 40s linear infinite; }
+body::after {
+  background:
+    radial-gradient(circle at 8% 6%, color-mix(in srgb, var(--halo-verde) 22%, transparent), transparent 38%),
+    radial-gradient(ellipse at 95% 55%, color-mix(in srgb, var(--halo-azul) 16%, transparent), transparent 42%);
+}
+@keyframes cristal-deriva { to { transform: translate(32px, 32px); } }
+
+h1, h2, h3 { font-weight: 800; letter-spacing: -0.02em; }
+
+/* floating glass pill header */
+.site-header { top: 12px; margin: 12px auto 0; max-width: calc(var(--max-w) + 2 * var(--pad)); width: calc(100% - 32px);
+  border: 1px solid var(--cristal-borde); border-radius: 999px; box-shadow: var(--sombra), var(--cristal-brillo); }
+@supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
+  .site-header { background: var(--cristal); -webkit-backdrop-filter: blur(24px) saturate(150%); backdrop-filter: blur(24px) saturate(150%); }
+}
+@media (max-width: 480px) { .site-header { border-radius: 26px; } }
+.site-header-inner { max-width: none; padding: 0.35rem 0.6rem 0.35rem 1.4rem; }
+.wordmark { font-weight: 800; letter-spacing: -0.02em; white-space: nowrap; }
+.tema-toggle { border-radius: 999px; }
+
+/* glass surfaces */
+.tarjeta-enlace, .stack-card, .certificado, .ficha-datos > div, .cv-embed, .nota {
+  background: var(--cristal); border: 1px solid var(--cristal-borde); box-shadow: var(--sombra), var(--cristal-brillo);
+  -webkit-backdrop-filter: blur(24px) saturate(140%); backdrop-filter: blur(24px) saturate(140%);
+}
+.tarjeta-enlace { border-radius: 26px; transition: transform 0.25s ease, border-color 0.25s ease; }
+.tarjeta-enlace:hover { transform: translateY(-4px); border-color: color-mix(in srgb, var(--accent) 55%, var(--cristal-borde)); }
+.tarjeta-cuerpo { border-top-color: var(--cristal-borde); }
+.tarjeta-media.diagram.arch { background: transparent; }
+.stack-card { border-radius: 999px; box-shadow: var(--cristal-brillo); }
+.stack-card-solido { background: var(--badge-bg); }
+.certificado { border-radius: 22px; }
+.flujo-paso { background: var(--cristal); border-color: var(--cristal-borde); border-radius: 999px; }
+
+/* pill buttons; the primary one glows like the video CTAs */
+.btn { border-radius: 999px; background: var(--cristal); border-color: var(--cristal-borde); box-shadow: var(--cristal-brillo);
+  -webkit-backdrop-filter: blur(20px); backdrop-filter: blur(20px); font-weight: 600; }
+.btn-primary { background: var(--accent); border-color: transparent; color: var(--on-accent-deep);
+  box-shadow: 0 0 34px color-mix(in srgb, var(--accent) 40%, transparent); }
+.btn-primary:hover { background: var(--accent); color: var(--on-accent-deep); box-shadow: 0 0 50px color-mix(in srgb, var(--accent) 55%, transparent); }
+
+/* hero photo: glass ring + green halo */
+.hero-foto { border: 3px solid var(--cristal-borde); box-shadow: 0 0 0 8px color-mix(in srgb, var(--accent) 12%, transparent),
+  0 0 90px color-mix(in srgb, var(--accent) 30%, transparent), var(--sombra); }
+.hero-firma { text-shadow: 0 0 40px color-mix(in srgb, var(--accent) 25%, transparent); }
+
+/* timeline dots glow */
+.hito.is-encendido::before { box-shadow: 0 0 16px var(--accent); }
+
+@media (prefers-reduced-motion: reduce) { body::before { animation: none; } }
+:root[data-tema="oscuro"] { --tarjeta-grad: transparent; }
+.badge { border-radius: 999px; }
