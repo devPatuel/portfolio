@@ -6,3 +6,9 @@
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=()
+
+# A CSP on the PDF itself (object-src 'none') stops the browser's PDF viewer, so cv.html showed
+# only the fallback; PDFs drop it and keep the same-site framing rule through X-Frame-Options.
+/*.pdf
+  ! Content-Security-Policy
+  X-Frame-Options: SAMEORIGIN
