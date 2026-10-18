@@ -1,0 +1,17 @@
+# Repo files that are not part of the website (gitignore syntax)
+.git
+.gitignore
+.assetsignore
+.worktrees
+.superpowers
+.wrangler
+.DS_Store
+node_modules
+docs
+scripts
+tests
+package.json
+package-lock.json
+bun.lock
+wrangler.jsonc
+CNAME

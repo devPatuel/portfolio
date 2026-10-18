@@ -1,0 +1,9 @@
+// Cloudflare Workers static assets: the site is plain HTML, served as is from the repo root.
+{
+  "$schema": "https://unpkg.com/wrangler@4.151.1/config-schema.json",
+  "name": "devpatuel-github-io",
+  "compatibility_date": "2026-10-12",
+  "assets": {
+    "directory": "."
+  }
+}
