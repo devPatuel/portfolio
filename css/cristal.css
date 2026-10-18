@@ -68,7 +68,7 @@ h1, h2, h3 { font-weight: 800; letter-spacing: -0.02em; }
 .tema-toggle { border-radius: 999px; }
 
 /* glass surfaces */
-.tarjeta-enlace, .stack-card, .certificado, .ficha-datos > div, .cv-embed, .nota {
+.tarjeta-enlace, .stack-card, .certificado, .cv-embed, .nota {
   background: var(--cristal); border: 1px solid var(--cristal-borde); box-shadow: var(--sombra), var(--cristal-brillo);
   -webkit-backdrop-filter: blur(24px) saturate(140%); backdrop-filter: blur(24px) saturate(140%);
 }
@@ -99,3 +99,54 @@ h1, h2, h3 { font-weight: 800; letter-spacing: -0.02em; }
 @media (prefers-reduced-motion: reduce) { body::before { animation: none; } }
 :root[data-tema="oscuro"] { --tarjeta-grad: transparent; }
 .badge { border-radius: 999px; }
+
+/* brand colours for the logos added with the sprite (img/logos.svg); near-black marks follow the theme text colour */
+.badge-claude { --badge-bg: #d97757; }
+.badge-meta { --badge-bg: #0467df; }
+.badge-flyway { --badge-bg: #cc0200; }
+.badge-githubactions { --badge-bg: #2088ff; }
+.badge-sqlite { --badge-bg: #0f80cc; }
+.badge-javascript { --badge-bg: #e8c600; }
+.badge-css { --badge-bg: #1572b6; }
+.badge-jwt, .badge-anthropic, .badge-github { --badge-bg: var(--text); }
+
+/* logo + name under it (project cards and the Stack row of each project page) */
+.tech-logos { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(5.2rem, 1fr)); gap: 1rem 0.5rem; }
+.tech-logo { display: flex; flex-direction: column; align-items: center; gap: 0.45rem; text-align: center; }
+.tech-logo svg { width: 28px; height: 28px; fill: var(--badge-bg); transition: transform 0.2s ease; }
+.tech-logo > span:last-child { font-family: var(--font-mono); font-size: 0.72rem; line-height: 1.25; color: var(--text-dim); }
+.tarjeta-enlace:hover .tech-logo svg { transform: translateY(-2px); }
+.logo-texto { width: 28px; height: 28px; display: grid; place-items: center; border: 1.5px solid currentColor; border-radius: 7px;
+  font: 800 0.55rem/1 var(--font-mono); color: var(--text); }
+.ficha-datos .tech-logos { grid-template-columns: repeat(auto-fill, minmax(7rem, 1fr)); }
+
+/* home Stack: one glass panel, a row per category, each technology says where it was used */
+.stack-tabla { border-radius: 22px; padding: 0.4rem 1.6rem; background: var(--cristal); border: 1px solid var(--cristal-borde);
+  box-shadow: var(--sombra), var(--cristal-brillo); -webkit-backdrop-filter: blur(24px) saturate(140%); backdrop-filter: blur(24px) saturate(140%); }
+.stack-fila { display: grid; grid-template-columns: 8rem 1fr; gap: 1rem; padding: 1.1rem 0; border-top: 1px solid var(--border); }
+.stack-fila:first-child { border-top: none; }
+.stack-fila h3 { font-family: var(--font-mono); font-size: 0.8rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--warm); margin: 0.3rem 0 0; }
+.stack-items { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr)); gap: 1rem; }
+.stack-items .tech-logo { flex-direction: row; align-items: flex-start; text-align: left; gap: 0.75rem; }
+.stack-items .tech-logo svg, .stack-items .logo-texto { width: 24px; height: 24px; flex: none; margin-top: 0.1rem; }
+.stack-items b { display: block; font-weight: 600; font-size: 0.95rem; }
+.stack-items small { color: var(--text-dim); font-size: 0.8rem; }
+@media (max-width: 560px) { .stack-fila { grid-template-columns: 1fr; gap: 0.6rem; } .stack-tabla { padding: 0.4rem 1.1rem; } }
+
+/* project facts (Cuándo, Rol, Stack, Enlaces): one glass panel with dividers instead of one box per row */
+.ficha-datos { gap: 0; padding: 0.4rem 1.6rem; border-radius: 22px; background: var(--cristal); border: 1px solid var(--cristal-borde);
+  box-shadow: var(--sombra), var(--cristal-brillo); -webkit-backdrop-filter: blur(24px) saturate(140%); backdrop-filter: blur(24px) saturate(140%); }
+.ficha-datos > div { padding: 1rem 0; align-items: center; }
+.ficha-datos > div:first-child { border-top: none; }
+
+/* project pages: larger, wider reading text */
+.ficha-cabecera .lede, .ficha-seccion p, .ficha-seccion .feature-list { max-width: 74ch; font-size: 1.12rem; line-height: 1.7; }
+.ficha-seccion .feature-list { color: var(--text); }
+
+/* "Ver proyecto" as a pill like .btn-primary */
+.tarjeta-cta { border-radius: 999px; background: var(--accent); color: var(--on-accent-deep); font-family: var(--font-body); font-weight: 600;
+  padding: 0.55em 1.2em; box-shadow: 0 0 28px color-mix(in srgb, var(--accent) 35%, transparent); }
+.stack-items .tech-logo > span:last-child { font-family: var(--font-body); font-size: 1rem; color: var(--text); }
+/* dark brand blues (Java, Dart, Flutter, .NET…) get lost on the dark background; lift them a bit */
+:root[data-tema="oscuro"] .tech-logo svg { fill: color-mix(in srgb, var(--badge-bg) 70%, #ffffff); }
