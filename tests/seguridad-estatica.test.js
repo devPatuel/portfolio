@@ -95,8 +95,8 @@ describe('the _headers file sends the same policy as the pages', () => {
   const header = (name) => read('_headers').split('\n').map((line) => line.trim())
     .find((line) => line.startsWith(`${name}: `))?.slice(name.length + 2) ?? '';
 
-  it('the header CSP is the page CSP plus frame-ancestors', () => {
-    assert.equal(header('Content-Security-Policy'), `${cspOf('index.html')} frame-ancestors 'none';`);
+  it('the header CSP is the page CSP plus frame-ancestors (self, so cv.html can embed the PDF)', () => {
+    assert.equal(header('Content-Security-Policy'), `${cspOf('index.html')} frame-ancestors 'self';`);
   });
 
   it('forces HTTPS and blocks MIME sniffing', () => {
