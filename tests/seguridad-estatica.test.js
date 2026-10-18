@@ -72,9 +72,13 @@ describe('the Content-Security-Policy allows the chat and nothing more', () => {
     assert.equal(directive('frame-src'), 'frame-src https://challenges.cloudflare.com');
   });
 
-  it('lets the page talk to this site and the backend only', () => {
+  it('lets the page talk to this site, the backend and Web Analytics only', () => {
     const connect = directive('connect-src');
-    assert.equal(connect, "connect-src 'self' https://portfolio-chatbot.devpatuel.workers.dev");
+    assert.equal(connect, "connect-src 'self' https://portfolio-chatbot.devpatuel.workers.dev https://cloudflareinsights.com");
+  });
+
+  it('lets Cloudflare Web Analytics load its beacon', () => {
+    assert.ok(directive('script-src').includes('https://static.cloudflareinsights.com'));
   });
 
   it('keeps the rest strict', () => {
@@ -83,6 +87,21 @@ describe('the Content-Security-Policy allows the chat and nothing more', () => {
     assert.equal(directive('object-src'), "object-src 'none'");
     assert.ok(!csp.includes("'unsafe-inline'"));
     assert.ok(!csp.includes("'unsafe-eval'"));
+  });
+});
+
+describe('the _headers file sends the same policy as the pages', () => {
+  // The browser enforces both policies at once, so a difference would block whatever only one allows.
+  const header = (name) => read('_headers').split('\n').map((line) => line.trim())
+    .find((line) => line.startsWith(`${name}: `))?.slice(name.length + 2) ?? '';
+
+  it('the header CSP is the page CSP plus frame-ancestors', () => {
+    assert.equal(header('Content-Security-Policy'), `${cspOf('index.html')} frame-ancestors 'none';`);
+  });
+
+  it('forces HTTPS and blocks MIME sniffing', () => {
+    assert.match(header('Strict-Transport-Security'), /^max-age=\d+/);
+    assert.equal(header('X-Content-Type-Options'), 'nosniff');
   });
 });
 

@@ -1,0 +1,8 @@
+# Cloudflare Pages response headers. GitHub Pages could not send these, so the policy also
+# lives in a <meta> on every page; frame-ancestors only works here, as a real header.
+/*
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'sha256-jWJpzolVsjbyG4xpMGS0xwi/YHlQoPdDQBvqZ9jGw8I=' https://challenges.cloudflare.com https://static.cloudflareinsights.com; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self' https://portfolio-chatbot.devpatuel.workers.dev https://cloudflareinsights.com; frame-src https://challenges.cloudflare.com; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none';
+  Strict-Transport-Security: max-age=31536000
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
