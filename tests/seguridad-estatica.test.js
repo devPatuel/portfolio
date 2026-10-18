@@ -68,8 +68,8 @@ describe('the Content-Security-Policy allows the chat and nothing more', () => {
     assert.ok(directive('script-src').includes('https://challenges.cloudflare.com'));
   });
 
-  it('lets Turnstile draw its frame', () => {
-    assert.equal(directive('frame-src'), 'frame-src https://challenges.cloudflare.com');
+  it('lets Turnstile and the site PDF draw their frames', () => {
+    assert.equal(directive('frame-src'), "frame-src 'self' https://challenges.cloudflare.com");
   });
 
   it('lets the page talk to this site, the backend and Web Analytics only', () => {

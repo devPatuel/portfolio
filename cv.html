@@ -20,7 +20,7 @@
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Jordi Patuel, desarrollador Java, Flutter y AWS" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-jWJpzolVsjbyG4xpMGS0xwi/YHlQoPdDQBvqZ9jGw8I=' https://challenges.cloudflare.com https://static.cloudflareinsights.com; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self' https://portfolio-chatbot.devpatuel.workers.dev https://cloudflareinsights.com; frame-src https://challenges.cloudflare.com; object-src 'none'; base-uri 'none'; form-action 'none';" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-jWJpzolVsjbyG4xpMGS0xwi/YHlQoPdDQBvqZ9jGw8I=' https://challenges.cloudflare.com https://static.cloudflareinsights.com; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self' https://portfolio-chatbot.devpatuel.workers.dev https://cloudflareinsights.com; frame-src 'self' https://challenges.cloudflare.com; object-src 'none'; base-uri 'none'; form-action 'none';" />
   <script>
     (function () {
       var tema = null;
@@ -71,9 +71,8 @@
     <section class="ficha-seccion">
       <!-- ?v=<fecha> busts the PDF viewer's own cache, which keys purely on this URL and
            ignores normal page/network cache invalidation. Bump the date whenever the PDF changes. -->
-      <object class="cv-embed" data="CV-Jordi-Patuel-Pons.pdf?v=20260920" type="application/pdf" title="Currículum de Jordi Patuel en PDF">
-        <p>Tu navegador no puede mostrar el PDF aquí. <a href="CV-Jordi-Patuel-Pons.pdf?v=20260920" download="CV-Jordi-Patuel-Pons.pdf">Descárgalo directamente</a>.</p>
-      </object>
+      <!-- An iframe, not <object>: the CSP keeps object-src 'none', which blocks <object> entirely. -->
+      <iframe class="cv-embed" src="CV-Jordi-Patuel-Pons.pdf?v=20260920" title="Currículum de Jordi Patuel en PDF"></iframe>
     </section>
   </main>
 
