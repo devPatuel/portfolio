@@ -32,6 +32,8 @@
       document.documentElement.classList.add('js');
     })();
   </script>
+  <link rel="preload" href="fonts/bricolage-grotesque-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/work-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/cristal.css" />
   <link rel="stylesheet" href="css/chat.css" />
@@ -77,8 +79,8 @@
       <p class="hero-frase" data-escribir>Todo pasa por algo, y ese algo siempre es bueno</p>
       <h1 class="hero-firma hero-revelar">Jordi Patuel</h1>
       <p class="hero-rol hero-revelar">Desarrollador Java · Flutter · AWS</p>
-      <div class="hero-figura hero-revelar">
-        <img class="hero-foto" src="img/jordi.jpg" alt="Jordi Patuel" width="500" height="500" />
+      <div class="hero-figura">
+        <img class="hero-foto" src="img/jordi.jpg" alt="Jordi Patuel" width="500" height="500" fetchpriority="high" />
         <!-- Shown by js/chat.js once the chat exists: without it, this button would do nothing. -->
         <button class="hero-patu" type="button" data-abrir-chat aria-label="Hablar con Patu, el asistente de IA del portfolio" hidden>
           <span class="hero-patu-bocadillo" aria-hidden="true">¡Hola! ¿Hablamos?</span>

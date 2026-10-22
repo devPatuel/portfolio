@@ -7,6 +7,13 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=()
 
+# Fonts never change in place, so they can be cached for a year; images get a week because the
+# files are not fingerprinted and a replaced photo must show up eventually.
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+/img/*
+  Cache-Control: public, max-age=604800
+
 # A CSP on the PDF itself (object-src 'none') stops the browser's PDF viewer, so cv.html showed
 # only the fallback; PDFs drop it and keep the same-site framing rule through X-Frame-Options.
 /*.pdf
