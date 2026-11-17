@@ -104,13 +104,13 @@
 
     <section class="ficha-seccion">
       <h2>Cómo funciona, en vídeo</h2>
-      <p class="lede">Patu recorre el portal como administrador y explica, sin tecnicismos, qué hace cada parte.</p>
+      <p class="lede">Patu recorre el portal como administrador, explica sin tecnicismos qué hace cada parte y termina con la arquitectura.</p>
       <figure class="shot shot-ancha">
         <video class="video-ficha" controls preload="none" poster="../img/portal/video-portada.jpg" width="1920" height="1080">
           <source src="../video/portal-empleados-por-dentro.mp4" type="video/mp4" />
           <p>Tu navegador no puede reproducir el vídeo. <a href="../video/portal-empleados-por-dentro.mp4">Descárgalo aquí</a>.</p>
         </video>
-        <figcaption>Personas, clientes, productos e importes son inventados.</figcaption>
+        <figcaption>Personas, clientes, productos e importes son inventados. Música: Alex Morgan, en Pixabay.</figcaption>
       </figure>
       <details class="transcripcion">
         <summary>Transcripción del vídeo</summary>
@@ -128,8 +128,10 @@
         <p>Las comisiones se calculan solas, por tramos, según el capital que capta cada uno. Al cerrar el mes, se generan las liquidaciones listas para pagar.</p>
         <h3>Las sesiones</h3>
         <p>El administrador ve quién está conectado y puede echar a todos si hace falta.</p>
-        <h3>Por dentro</h3>
-        <p>Por dentro: Java con Spring Boot y React, y la infraestructura en AWS con Terraform. Ah, y también tiene modo oscuro.</p>
+        <h3>La arquitectura</h3>
+        <p>Y así funciona por dentro. La web se sirve desde AWS, con un filtro de tráfico delante. La API, en Java con Spring Boot, vive en un servidor junto a las automatizaciones. La base de datos está cifrada y en una red privada, y su contraseña la guarda un gestor de secretos. Los archivos se suben y se descargan con enlaces que caducan. Si el gasto se dispara, el servidor se para solo. Cada cambio pasa los tests y se despliega solo desde GitHub. Y toda la infraestructura está definida con Terraform.</p>
+        <h3>Un detalle más</h3>
+        <p>La parte que ves está hecha en React. Ah, y también tiene modo oscuro.</p>
       </details>
     </section>
 
