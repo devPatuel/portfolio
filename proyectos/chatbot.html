@@ -87,7 +87,7 @@
         </div>
         <div>
           <dt>Stack</dt>
-          <dd><ul class="tech-logos" role="list"><li class="tech-logo badge-typescript"><svg aria-hidden="true"><use href="../img/logos.svg#logo-typescript"/></svg><span>TypeScript</span></li><li class="tech-logo badge-cloudflare"><svg aria-hidden="true"><use href="../img/logos.svg#logo-cloudflare"/></svg><span>Cloudflare Workers</span></li><li class="tech-logo badge-meta"><svg aria-hidden="true"><use href="../img/logos.svg#logo-meta"/></svg><span>Workers AI · Llama 3.1 8B</span></li><li class="tech-logo badge-sqlite"><svg aria-hidden="true"><use href="../img/logos.svg#logo-sqlite"/></svg><span>D1 (SQLite)</span></li><li class="tech-logo badge-cloudflare"><svg aria-hidden="true"><use href="../img/logos.svg#logo-cloudflare"/></svg><span>Turnstile</span></li><li class="tech-logo badge-javascript"><svg aria-hidden="true"><use href="../img/logos.svg#logo-javascript"/></svg><span>JavaScript sin framework</span></li></ul></dd>
+          <dd><ul class="tech-logos" role="list"><li class="tech-logo badge-typescript"><svg aria-hidden="true"><use href="../img/logos.svg#logo-typescript"/></svg><span>TypeScript</span></li><li class="tech-logo badge-cloudflare"><svg aria-hidden="true"><use href="../img/logos.svg#logo-cloudflare"/></svg><span>Cloudflare Workers</span></li><li class="tech-logo badge-google"><svg aria-hidden="true"><use href="../img/logos.svg#logo-google"/></svg><span>Workers AI · Gemma 4 26B</span></li><li class="tech-logo badge-sqlite"><svg aria-hidden="true"><use href="../img/logos.svg#logo-sqlite"/></svg><span>D1 (SQLite)</span></li><li class="tech-logo badge-cloudflare"><svg aria-hidden="true"><use href="../img/logos.svg#logo-cloudflare"/></svg><span>Turnstile</span></li><li class="tech-logo badge-javascript"><svg aria-hidden="true"><use href="../img/logos.svg#logo-javascript"/></svg><span>JavaScript sin framework</span></li></ul></dd>
         </div>
         <div>
           <dt>Enlaces</dt>
@@ -197,7 +197,7 @@
             <g class="node" data-id="ai">
               <rect x="400" y="255" width="160" height="60" rx="2"/>
               <text x="480" y="280" text-anchor="middle" class="node-title">Workers AI</text>
-              <text x="480" y="299" text-anchor="middle" class="node-sub">Llama 3.1 8B</text>
+              <text x="480" y="299" text-anchor="middle" class="node-sub">Gemma 4 26B</text>
             </g>
           </svg>
           <figcaption id="diagram-caption">Sin pase válido, /chat responde 401 antes de leer el mensaje: el modelo, lo único caro, ni se entera.</figcaption>
@@ -228,7 +228,7 @@
             </div>
             <div class="decision" data-id="ai">
               <dt>Workers AI</dt>
-              <dd>Llama 3.1 8B detrás de una interfaz, así que cambiar de modelo es tocar un archivo. Recibe las reglas como mensaje de sistema y el texto del visitante aparte.</dd>
+              <dd>Gemma 4 26B detrás de una interfaz, así que cambiar de modelo es tocar un archivo (ya pasó: Cloudflare retiró el Llama 3.1 8B con el que empezó). Recibe las reglas como mensaje de sistema y el texto del visitante aparte.</dd>
             </div>
           </dl>
         </div>
@@ -277,7 +277,7 @@
             <tr><th scope="col">Aspecto</th><th scope="col">Gratis (este bot)</th><th scope="col">De pago</th></tr>
           </thead>
           <tbody>
-            <tr><th scope="row">Modelo</th><td>Llama 3.1 8B: pequeño, se le puede convencer de cambiar de papel y a veces rechaza preguntas normales</td><td>Claude (Anthropic) o GPT (OpenAI): entiende mejor, sigue mejor las reglas y se inventa menos</td></tr>
+            <tr><th scope="row">Modelo</th><td>Gemma 4 26B: abierto y dentro del plan gratis, pero sigue las reglas peor que un modelo grande y se le puede intentar convencer de cambiar de papel</td><td>Claude (Anthropic) o GPT (OpenAI): entiende mejor, sigue mejor las reglas y se inventa menos</td></tr>
             <tr><th scope="row">Capacidad</th><td>10.000 neuronas al día de cuota gratuita; para no pasarse, el bot se corta a los 100 mensajes</td><td>Pagas por uso y escala con la demanda, con un tope de gasto que decides tú</td></tr>
             <tr><th scope="row">Protección</th><td>Captcha y reglas propias</td><td>WAF gestionado con reglas antibots, moderación del proveedor y <em>guardrails</em></td></tr>
             <tr><th scope="row">Datos</th><td>SQLite (D1), 30 días, sin réplicas</td><td>PostgreSQL gestionado: copias automáticas, réplicas, cifrado y contrato de tratamiento de datos (RGPD)</td></tr>

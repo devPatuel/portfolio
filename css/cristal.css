@@ -103,6 +103,7 @@ h1, h2, h3 { font-weight: 800; letter-spacing: -0.02em; }
 /* brand colours for the logos added with the sprite (img/logos.svg); near-black marks follow the theme text colour */
 .badge-claude { --badge-bg: #d97757; }
 .badge-meta { --badge-bg: #0467df; }
+.badge-google { --badge-bg: #4285f4; }
 .badge-flyway { --badge-bg: #cc0200; }
 .badge-githubactions { --badge-bg: #2088ff; }
 .badge-sqlite { --badge-bg: #0f80cc; }
